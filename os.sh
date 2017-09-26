@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-. common.sh
+CUR_DIR=$(dirname $0)
+if [[ $CUR_DIR = "." ]]; then CUR_DIR=$PWD; fi
+. $CUR_DIR/common.sh
 
 arch() {
 	ARCH=$(uname -m)

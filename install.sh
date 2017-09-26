@@ -1,12 +1,8 @@
 #!/bin/bash
-say() { echo >&1 -e ":: $*"; }
-info() { echo >&1 -e ":: \033[01;32m$*\033[00m"; }
-warn() { echo >&2 -e ":: \033[00;31m$*\033[00m"; }
-die() { echo >&2 -e ":: \033[00;31m$*\033[00m"; exit 1; }
-null() { echo >/dev/null; }
-
 CUR_DIR=$(dirname $0)
 if [[ $CUR_DIR = "." ]]; then CUR_DIR=$PWD; fi
+. $CUR_DIR/common.sh
+
 BIN_DIR=$CUR_DIR/bin
 
 glide() {

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-. common.sh
-
 CUR_DIR=$(dirname $0)
 if [[ $CUR_DIR = "." ]]; then CUR_DIR=$PWD; fi
+. $CUR_DIR/common.sh
+
 BIN_DIR=$CUR_DIR/bin
 GLIDE="$BIN_DIR/glide"
 
