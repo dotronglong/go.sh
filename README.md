@@ -19,3 +19,9 @@ $(GO_SH)/make.sh:
 
 -include $(GO_SH)/Makefile
 ```
+
+- Then we need to install `go.sh` first.
+
+```
+make get-go.sh
+```
