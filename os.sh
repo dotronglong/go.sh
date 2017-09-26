@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+. common.sh
 
 arch() {
 	ARCH=$(uname -m)
