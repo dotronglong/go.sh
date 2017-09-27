@@ -1,6 +1,6 @@
 up-go.sh:
 	@rm -rf $(GO_SH)
-	@get-go.sh
+	@make get-go.sh
 
 .PHONY: deps
 deps: get-go.sh
