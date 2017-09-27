@@ -1,6 +1,7 @@
 BIN=$(PWD)/bin
 APP_DIR=$(PWD)/app
 
+############## GENERAL STUFFS ##############
 .PHONY: gen
 gen: get-easyjson clean-easyjson
 	@echo "Generate easyjson files ..."
@@ -36,6 +37,7 @@ get-migration:
 	@go get -u github.com/goline/migrate
 	@echo "Installed for macOS"
 
+############## BUILD ##############
 .PHONY: build
 build: deps build-fast build-ci
 
