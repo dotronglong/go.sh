@@ -32,9 +32,9 @@ get-migration:
 	@echo "Installing migration ..."
 	@GOOS=linux GOARCH=amd64 go get -u github.com/goline/migrate
 	@mv $(GOPATH)/bin/linux_amd64/migrate $(BIN)/migrate
-	@echo "Built for Linux"
+	@echo "Installed for Linux"
 	@go get -u github.com/goline/migrate
-	@echo "Built for macOS"
+	@echo "Installed for macOS"
 
 .PHONY: build
 build: deps build-fast build-ci
@@ -49,4 +49,4 @@ build-dc: gen gen-swagger build-ci
 .PHONY: build-ci
 build-ci:
 	@echo "Building ..."
-	@GOOS=linux GOARCH=arm go build -o $(BIN)/app $(APP_DIR)/main.go
+	@GOOS=linux GOARCH=amd64 go build -o $(BIN)/api $(APP_DIR)/main.go
