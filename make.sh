@@ -5,10 +5,14 @@ if [[ $CUR_DIR = "." ]]; then CUR_DIR=$PWD; fi
 
 BIN_DIR=$CUR_DIR/bin
 GLIDE="$BIN_DIR/glide"
+GLIDE_DIR=$BIN_DIR/.glide
+
+export GLIDE_HOME=$GLIDE_DIR
 
 get-glide() {
 	if [[ ! -f "$GLIDE" ]]; then
 		$CUR_DIR/install.sh glide
+		mkdir -p $GLIDE_DIR
 	fi
 }
 
