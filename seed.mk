@@ -18,7 +18,7 @@ clean-easyjson:
 .PHONY: get-swagger
 get-swagger: $(GO_SH)/bin/swagger
 	@echo "Swagger is installed"
-$(BIN)/swagger:
+$(GO_SH)/bin/swagger:
 	@echo "Installing swagger ..."
 	@go get -u github.com/go-swagger/go-swagger/cmd/swagger
 	@mv $(GOPATH)/bin/swagger $(GO_SH)/bin/swagger
