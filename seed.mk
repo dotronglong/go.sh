@@ -27,9 +27,17 @@ gen-swagger: get-swagger
 	@sed -i -e "s/\[API_HOST\]/$(API_HOST)/g" $(SWAGGER_FILE)
 	@sed -i -e "s/\[API_PORT\]/:$(API_PORT)/g" $(SWAGGER_FILE)
 	@rm -rf "$(SWAGGER_FILE)-e"
+.PHONY: get-migration
+get-migration:
+	@echo "Installing migration ..."
+	@GOOS=linux GOARCH=amd64 go get -u github.com/goline/migrate
+	@mv $(GOPATH)/bin/linux_arm/migrate $(BIN)/migrate
+	@echo "Built for Linux"
+	@go get -u github.com/goline/migrate
+	@echo "Built for macOS"
 
 .PHONY: build
-build: deps build-fast build-ci build-migration
+build: deps build-fast build-ci
 
 .PHONY: build-fast
 fast-build: gen gen-swagger build-ci
