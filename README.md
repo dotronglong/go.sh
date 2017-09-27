@@ -27,6 +27,12 @@ make get-go.sh
 
 - Now you can use a lot of helpful commands in this `Makefile` (see Commands section)
 
+- In order to update `go.sh` run this command
+
+```
+make up-go.sh
+```
+
 ### Commands
 
 - Install dependencies for golang project

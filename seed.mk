@@ -31,7 +31,7 @@ gen-swagger: get-swagger
 get-migration:
 	@echo "Installing migration ..."
 	@GOOS=linux GOARCH=amd64 go get -u github.com/goline/migrate
-	@mv $(GOPATH)/bin/linux_arm/migrate $(BIN)/migrate
+	@mv $(GOPATH)/bin/linux_amd64/migrate $(BIN)/migrate
 	@echo "Built for Linux"
 	@go get -u github.com/goline/migrate
 	@echo "Built for macOS"
