@@ -37,6 +37,14 @@ get-migration:
 	@echo "Installed for Linux"
 	@go get -u github.com/goline/migrate
 	@echo "Installed for macOS"
+.PHONY: get-ginkgo
+get-ginkgo: $(GO_SH)/bin/ginkgo
+	@echo "Ginkgo is installed"
+$(GO_SH)/bin/ginkgo:
+	@echo "Installing ginkgo ..."
+	@go get -u github.com/onsi/ginkgo/ginkgo
+	@go get -u github.com/onsi/gomega
+	@mv $(GOPATH)/bin/ginkgo $(GO_SH)/bin/ginkgo
 
 ############## BUILD ##############
 .PHONY: build
