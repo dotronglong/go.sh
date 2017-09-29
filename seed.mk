@@ -11,7 +11,7 @@ get-easyjson: $(GO_SH)/bin/easyjson
 $(GO_SH)/bin/easyjson:
 	@echo "Installing easyjson ..."
 	@go get github.com/mailru/easyjson/...
-	@mv $(GOPATH)/bin/easyjson $(GO_SH)/bin/easyjson
+	@cp $(GOPATH)/bin/easyjson $(GO_SH)/bin/easyjson
 clean-easyjson:
 	@find $(APP_DIR)/entity/ -name "*_easyjson.go" -exec rm -rf {} \;
 	@find $(APP_DIR)/entity/ -name "easyjson-bootstrap*" -exec rm -rf {} \;
@@ -22,7 +22,7 @@ get-swagger: $(GO_SH)/bin/swagger
 $(GO_SH)/bin/swagger:
 	@echo "Installing swagger ..."
 	@go get -u github.com/go-swagger/go-swagger/cmd/swagger
-	@mv $(GOPATH)/bin/swagger $(GO_SH)/bin/swagger
+	@cp $(GOPATH)/bin/swagger $(GO_SH)/bin/swagger
 gen-swagger: get-swagger
 	@echo "Generate swagger.json ..."
 	@$(GO_SH)/bin/swagger generate spec -o $(SWAGGER_FILE) -b ./app
@@ -33,7 +33,7 @@ gen-swagger: get-swagger
 get-migration:
 	@echo "Installing migration ..."
 	@GOOS=linux GOARCH=amd64 go get -u github.com/goline/migrate
-	@mv $(GOPATH)/bin/linux_amd64/migrate $(BIN)/migrate
+	@cp $(GOPATH)/bin/linux_amd64/migrate $(BIN)/migrate
 	@echo "Installed for Linux"
 	@go get -u github.com/goline/migrate
 	@echo "Installed for macOS"
@@ -44,7 +44,7 @@ $(GO_SH)/bin/ginkgo:
 	@echo "Installing ginkgo ..."
 	@go get -u github.com/onsi/ginkgo/ginkgo
 	@go get -u github.com/onsi/gomega
-	@mv $(GOPATH)/bin/ginkgo $(GO_SH)/bin/ginkgo
+	@cp $(GOPATH)/bin/ginkgo $(GO_SH)/bin/ginkgo
 
 ############## BUILD ##############
 .PHONY: build
