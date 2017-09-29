@@ -13,7 +13,8 @@ $(GO_SH)/bin/easyjson:
 	@go get github.com/mailru/easyjson/...
 	@mv $(GOPATH)/bin/easyjson $(GO_SH)/bin/easyjson
 clean-easyjson:
-	@find $(APP_DIR)/entity/ -name "*_easyjson.go" -exec rm -rf {} \;	
+	@find $(APP_DIR)/entity/ -name "*_easyjson.go" -exec rm -rf {} \;
+	@find $(APP_DIR)/entity/ -name "easyjson-bootstrap*" -exec rm -rf {} \;
 
 .PHONY: get-swagger
 get-swagger: $(GO_SH)/bin/swagger
