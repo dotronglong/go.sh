@@ -51,10 +51,10 @@ $(GO_SH)/bin/ginkgo:
 build: deps build-fast build-ci
 
 .PHONY: build-fast
-fast-build: gen gen-swagger build-ci
+build-fast: gen build-ci
 
 .PHONY: build-dc
-build-dc: gen gen-swagger build-ci
+build-dc: build-fast
 	@docker-compose restart api
 
 .PHONY: build-ci
