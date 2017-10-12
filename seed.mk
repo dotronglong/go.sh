@@ -1,9 +1,14 @@
 BIN=$(PWD)/bin
 APP_DIR=$(PWD)/app
 
-############## GENERAL STUFFS ##############
-.PHONY: gen
-gen: get-easyjson clean-easyjson
+############## GENERATE ##############
+.PHONY gen
+gen: gen-easyjson gen-config
+	@eval $(GENS)
+gen-config:
+	@go run $(APP_DIR)/global/config/main.go --output=$(PWD)/etc/example.ini
+	@$(GO_SH)/common.sh info "File created at $(PWD)/etc/example.ini"
+gen-easyjson: get-easyjson clean-easyjson
 	@echo "Generate easyjson files ..."
 	@$(GO_SH)/bin/easyjson -all $(APP_DIR)/entity/*.go $(APP_DIR)/entity/**/*.go
 get-easyjson: $(GO_SH)/bin/easyjson
@@ -61,12 +66,3 @@ build-dc: build-fast
 build-ci:
 	@echo "Building ..."
 	@GOOS=linux GOARCH=amd64 go build -o $(BIN)/api $(APP_DIR)/main.go
-
-############## GENERATE ##############
-.PHONY gen
-gen: gen-config
-	@eval $(GENS)
-
-gen-config:
-	@go run $(APP_DIR)/global/config/main.go --output=$(PWD)/etc/example.ini
-	@$(GO_SH)/common.sh info "File created at $(PWD)/etc/example.ini"
