@@ -61,3 +61,12 @@ build-dc: build-fast
 build-ci:
 	@echo "Building ..."
 	@GOOS=linux GOARCH=amd64 go build -o $(BIN)/api $(APP_DIR)/main.go
+
+############## GENERATE ##############
+.PHONY gen
+gen: gen-config
+	@eval $(GENS)
+
+gen-config:
+	@go run $(APP_DIR)/global/config/main.go --output=$(PWD)/etc/example.ini
+	@$(GO_SH)/common.sh info "File created at $(PWD)/etc/example.ini"
