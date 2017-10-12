@@ -2,11 +2,11 @@ BIN=$(PWD)/bin
 APP_DIR=$(PWD)/app
 
 ############## GENERATE ##############
-.PHONY gen
+.PHONY: gen
 gen: gen-easyjson gen-config
 	@eval $(GENS)
 gen-config:
-	@go run $(APP_DIR)/global/config/main.go --output=$(PWD)/etc/example.ini
+	@go run $(APP_DIR)/global/config/main.go config --output=$(PWD)/etc/example.ini
 	@$(GO_SH)/common.sh info "File created at $(PWD)/etc/example.ini"
 gen-easyjson: get-easyjson clean-easyjson
 	@echo "Generate easyjson files ..."
