@@ -7,7 +7,7 @@ gen: gen-easyjson gen-config
 	@eval $(GENS)
 gen-config:
 	@echo "Generating example configuration ..."
-	@go run $(APP_DIR)/global/config/main.go config --output=$(PWD)/etc/example.ini
+	@go run $(APP_DIR)/global/config/main.go config --output=$(PWD)/etc
 	@echo "File created at $(PWD)/etc/example.ini"
 gen-easyjson: get-easyjson clean-easyjson
 	@echo "Generate easyjson files ..."
