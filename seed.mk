@@ -9,6 +9,7 @@ gen-config:
 	@echo "Generating example configuration ..."
 	@go run $(APP_DIR)/global/config/main.go config --output=$(PWD)/etc
 	@$(GO_SH)/print.sh info "File created at $(PWD)/etc/example.ini"
+	@$(GO_SH)/print.sh info "File created at $(PWD)/etc/params.ini"
 gen-easyjson: get-easyjson clean-easyjson
 	@echo "Generate easyjson files ..."
 	@$(GO_SH)/bin/easyjson -all $(APP_DIR)/entity/*.go $(APP_DIR)/entity/**/*.go
