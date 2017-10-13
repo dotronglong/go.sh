@@ -10,11 +10,11 @@ glide() {
 	AROS="$($CUR_DIR/os.sh os)-$($CUR_DIR/os.sh arch)"
 	FILE="glide-$VERSION-$AROS.tar.gz"
 	LINK="https://github.com/Masterminds/glide/releases/download/$VERSION/$FILE"
-	info "Downloading $FILE ..."
+	$CUR_DIR/print.sh info "Downloading $FILE ..."
 	cd $BIN_DIR
 	curl -SLO $LINK && tar -xzf $FILE && rm -rf $FILE
 	mv $AROS/glide glide && rm -rf $AROS
-	info "Glide is installed at $BIN_DIR/glide"
+	$CUR_DIR/print.sh info "Glide is installed at $BIN_DIR/glide"
 }
 
 $*
