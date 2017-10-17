@@ -67,4 +67,4 @@ build-dc: build-fast
 .PHONY: build-ci
 build-ci:
 	@echo "Building ..."
-	@GOOS=linux GOARCH=amd64 go build -o $(BIN)/api $(APP_DIR)/main.go
+	@BIN=$(BIN) APP_DIR=$(APP_DIR) $(GO_SH)/build.sh ci
