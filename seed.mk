@@ -62,7 +62,7 @@ build-fast: gen build-ci
 
 .PHONY: build-dc
 build-dc: build-fast
-	@$(BIN)/api --config=$(APP_DIR)/etc/app.ini
+	@APP_ENV=dev $(BIN)/api --config=$(APP_DIR)/etc/app.ini
 
 .PHONY: build-ci
 build-ci:
