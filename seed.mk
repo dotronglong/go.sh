@@ -52,6 +52,12 @@ $(GO_SH)/bin/ginkgo:
 	@go get -u github.com/onsi/ginkgo/ginkgo
 	@go get -u github.com/onsi/gomega
 	@cp $(GOPATH)/bin/ginkgo $(GO_SH)/bin/ginkgo
+.PHONY: get-docker
+get-docker: /usr/bin/docker
+	@echo "Docker is installed"
+/usr/bin/docker:
+	@echo "Installing docker ..."
+	@$(GO_SH)/install.sh docker
 
 ############## BUILD ##############
 .PHONY: build
