@@ -62,7 +62,7 @@ build-fast: gen build-ci
 
 .PHONY: build-dc
 build-dc: build-fast
-	@docker-compose restart api
+	@$(BIN)/api --config=$(APP_DIR)/etc/app.ini
 
 .PHONY: build-ci
 build-ci:
