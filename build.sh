@@ -28,7 +28,7 @@ export_ldflags() {
 
 ci() {
 	export_ldflags
-	${GO} build -ldflags $LDFLAGS -o $BIN/api $APP_DIR/main.go
+	${GO} build -ldflags "$LDFLAGS" -o $BIN/api $APP_DIR/main.go
 }
 
 $*
