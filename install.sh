@@ -33,8 +33,7 @@ docker() {
 
     apt-get update \
 	&& apt-get install -y docker-ce
-
-	$CUR_DIR/print.sh info $(docker version)
+	docker version
 }
 
 $*
