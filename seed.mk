@@ -12,7 +12,7 @@ gen-config:
 	@$(GO_SH)/print.sh info "File created at $(PWD)/etc/params.ini"
 gen-easyjson: get-easyjson clean-easyjson
 	@echo "Generate easyjson files ..."
-	@$(GO_SH)/bin/easyjson -all $(APP_DIR)/entity/*.go $(APP_DIR)/entity/**/*.go $(APP_DIR)/vendor/**/entity/**/*.go
+	@$(GO_SH)/bin/easyjson -all $(APP_DIR)/entity/*.go $(APP_DIR)/entity/**/*.go
 get-easyjson: $(GO_SH)/bin/easyjson
 	@echo "Easyjson is installed"
 $(GO_SH)/bin/easyjson:
@@ -22,8 +22,6 @@ $(GO_SH)/bin/easyjson:
 clean-easyjson:
 	@find $(APP_DIR)/entity/ -name "*_easyjson.go" -exec rm -rf {} \;
 	@find $(APP_DIR)/entity/ -name "easyjson-bootstrap*" -exec rm -rf {} \;
-	@find $(APP_DIR)/vendor/**/entity/ -name "*_easyjson.go" -exec rm -rf {} \;
-	@find $(APP_DIR)/vendor/**/entity/ -name "easyjson-bootstrap*" -exec rm -rf {} \;
 
 .PHONY: get-swagger
 get-swagger: $(GO_SH)/bin/swagger
