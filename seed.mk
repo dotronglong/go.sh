@@ -55,7 +55,7 @@ $(GO_SH)/bin/ginkgo:
 
 ############## BUILD ##############
 .PHONY: build
-build: deps build-fast build-ci
+build: deps gen build-ci
 
 .PHONY: build-fast
 build-fast: gen-easyjson build-ci
