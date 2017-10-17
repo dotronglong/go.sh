@@ -62,7 +62,8 @@ build-fast: gen-easyjson build-ci
 
 .PHONY: build-dc
 build-dc: build-fast
-	@APP_ENV=dev $(BIN)/api --config=$(PWD)/etc/app.ini
+	@echo "Starting API ..."
+	@APP_ENV=dev APP_CONF=$(PWD)/etc/app.ini $(BIN)/api
 
 .PHONY: build-ci
 build-ci:
