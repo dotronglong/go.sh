@@ -40,9 +40,6 @@ docker() {
 	curl -SLO https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKER_VERSION-ce.tgz
 	tar -xzf docker-$DOCKER_VERSION-ce.tgz && rm -rf docker-$DOCKER_VERSION-ce.tgz
 	cp docker/* /usr/bin/ && rm -rf docker
-	groupadd docker
-	usermod -aG docker $USER
-	dockerd &
 }
 
 $*
