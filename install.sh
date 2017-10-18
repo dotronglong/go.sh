@@ -17,7 +17,7 @@ glide() {
 	$CUR_DIR/print.sh info "Glide is installed at $BIN_DIR/glide"
 }
 
-docker() {
+docker_pkg() {
 	apt-get update \
 	&& apt-get install -y \
 	    apt-transport-https \
@@ -33,6 +33,16 @@ docker() {
 
     apt-get update \
 	&& apt-get install -y docker-ce
+}
+
+docker() {
+	DOCKER_VERSION=17.09.0
+	curl -SLO https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKER_VERSION-ce.tgz
+	tar -xzf docker-$DOCKER_VERSION-ce.tgz && rm -rf docker-$DOCKER_VERSION-ce.tgz
+	cp docker/* /usr/bin/ && rm -rf docker
+	groupadd docker
+	usermod -aG docker $USER
+	dockerd &
 }
 
 $*
