@@ -21,8 +21,8 @@ export_ldflags() {
     go_version=$(${GO} version | sed -E 's|.*go(([0-9]+\.){1,2}[0-9]+) .*|\1|g')
     git_log=$(git log --decorate --oneline -n1 | sed -e "s/'/ /g" -e "s/\"/ /g" -e "s/\#/\№/g" -e 's/`/ /g')
 #    git_describe=$(git describe --tags --long)
-#    seed_version="$(grep -A1 'package: gitlab.com/godpin/seed' glide.yaml | tail -1 | cut -d':' -f2 | xargs)@$(grep -A1 'name: gitlab.com/godpin/seed' glide.lock | tail -1 | cut -d':' -f2 | xargs)"
-    seed_version="$(grep -A1 'name: gitlab.com/godpin/seed' glide.lock | tail -1 | cut -d':' -f2 | xargs)"
+#    seed_version="$(grep -A1 'package: wixkey/seed' glide.yaml | tail -1 | cut -d':' -f2 | xargs)@$(grep -A1 'name: gitlab.com/godpin/seed' glide.lock | tail -1 | cut -d':' -f2 | xargs)"
+    seed_version="$(grep -A1 'name: wixkey/seed' glide.lock | tail -1 | cut -d':' -f2 | xargs)"
     export LDFLAGS="-X 'main.AppVersion=${app_version}' -X 'main.GoVersion=${go_version}' -X 'main.BuildDate=${build_date}' -X 'main.GitLog=${git_log}' -X 'main.SeedVersion=${seed_version}'"
 }
 
