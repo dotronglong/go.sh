@@ -11,11 +11,11 @@ export_ldflags() {
     app_version_suffix=$(test -n "$(git status --porcelain)" && echo ".dirty")
     short_hash=$(git rev-parse --short HEAD)
     app_version=$(git branch | grep '*' | cut -f2 -d' ')
-    if [ $app_version == "master" ]; then
+    if [[ $app_version == "master" ]]; then
         app_version="${app_version}@${short_hash}"
     fi
 
-    if [ "$app_version_suffix" != "" ]; then
+    if [[ "$app_version_suffix" != "" ]]; then
         app_version="${app_version}${app_version_suffix}"
     fi
     go_version=$(${GO} version | sed -E 's|.*go(([0-9]+\.){1,2}[0-9]+) .*|\1|g')
