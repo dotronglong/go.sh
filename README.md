@@ -13,9 +13,9 @@ get-go.sh: $(GO_SH)/make.sh
 $(GO_SH)/make.sh:
 	@echo "Downloading go.sh"
 	@mkdir -p $(TOOLS_DIR)
-	@curl -SLO https://github.com/dotronglong/go.sh/archive/master.zip
-	@unzip master.zip && mv go.sh-master $(GO_SH)
-	@rm -rf master.zip
+	@curl -SLO https://api.github.com/repos/dotronglong/go.sh/tarball/master
+	@tar -xzf master && rm -rf master
+	@mv dotronglong-go.sh-* go.sh
 -include $(GO_SH)/Makefile
 ```
 
