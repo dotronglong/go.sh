@@ -15,7 +15,7 @@ $(GO_SH)/make.sh:
 	@mkdir -p $(TOOLS_DIR)
 	@curl -SLO https://api.github.com/repos/dotronglong/go.sh/tarball/master
 	@tar -xzf master && rm -rf master
-	@mv dotronglong-go.sh-* go.sh
+	@mv dotronglong-go.sh-* $(TOOLS_DIR)/go.sh
 -include $(GO_SH)/Makefile
 ```
 
